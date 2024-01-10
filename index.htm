@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facts Info</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="result"></div>
+    <script>
+        var limit = 3;
+        $.ajax({
+            method: 'GET',
+            url: 'https://api.api-ninjas.com/v1/facts?limit=' + limit,
+            headers: { 'X-Api-Key': '1lRKdQtz9CEj7Hs9QVmLaw==Wk0IpyUxK1K5bkwt'},
+            contentType: 'application/json',
+            success: function(result) {
+                var factText = result[0].fact;
+                document.getElementById('result').innerText = factText;
+            },
+            error: function ajaxError(jqXHR) {
+                console.error('Error: ', jqXHR.responseText);
+            }
+        });
+    </script>
+</body>
+</html>
