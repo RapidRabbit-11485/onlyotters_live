@@ -14,8 +14,8 @@
             headers: { 'X-Api-Key': '1lRKdQtz9CEj7Hs9QVmLaw==Wk0IpyUxK1K5bkwt'},
             contentType: 'application/json',
             success: function(result) {
-                var factText = result[0].fact;
-                document.getElementById('result').innerText = factText;
+                var jsonText = JSON.stringify(result, null, 2);
+                document.getElementById('result').innerText = jsonText;
             },
             error: function ajaxError(jqXHR) {
                 console.error('Error: ', jqXHR.responseText);
